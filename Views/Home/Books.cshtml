@@ -45,9 +45,13 @@
 
         $('#authors').change(function () {
             var author = $('#authors').val();
-
-            api.getBooksByAuthor({}, author);
-        });
+            api.getBooksByAuthor({
+                success: function (result) {
+                    $('#bookTableBody').empty();
+                    $('#bookTemplate').tmpl(result).appendTo('#bookTableBody');
+                }
+            }, author);
+        })
 
     })
 
