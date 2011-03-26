@@ -39,16 +39,9 @@
         $('#authors').change(function () {
             var author = $('#authors').val();
 
-            $.ajax({
-                url: '@Url.Action("GetBooksForAuthor", "Api/Books")',
-                type: 'POST',
-                data: { author: author },
-                success: function (result) {
-                    $('#bookTableBody').empty();
-                    $('#bookTemplate').tmpl(result).appendTo('#bookTableBody');
-                }
-            });
+            api.getBooksByAuthor(author);
         });
 
     })
+
 </script>

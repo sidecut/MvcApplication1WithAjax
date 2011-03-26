@@ -12,3 +12,15 @@ booksApi.prototype.getAuthors = function () {
         }
     });
 }
+
+booksApi.prototype.getBooksByAuthor = function (author) {
+    $.ajax({
+        url: '/Api/Books/GetBooksForAuthor',
+        type: 'POST',
+        data: { author: author },
+        success: function (result) {
+            $('#bookTableBody').empty();
+            $('#bookTemplate').tmpl(result).appendTo('#bookTableBody');
+        }
+    });
+}
