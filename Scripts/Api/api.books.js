@@ -2,7 +2,7 @@
 
 booksApi.prototype.getAuthors = function (options) {
     $.ajax({
-        url: '/Api/Books/GetAuthorsz',
+        url: '/Api/Books/GetAuthors',
         type: 'GET',
         success: options.success,
         error: function (result) {
