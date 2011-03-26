@@ -1,10 +1,10 @@
 ﻿var booksApi = function () { }
 
-booksApi.prototype.getAuthors = function (success) {
+booksApi.prototype.getAuthors = function (options) {
     $.ajax({
         url: '/Api/Books/GetAuthors',
         type: 'GET',
-        success: success
+        success: options.success
     });
 }
 
