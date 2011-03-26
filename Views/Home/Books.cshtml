@@ -34,7 +34,12 @@
     $(document).ready(function () {
 
         var api = new booksApi();
-        api.getAuthors();
+        api.getAuthors(function (result) {
+            for (var i = 0; i < result.length; i++) {
+                var option = new Option(result[i], result[i]);
+                $('#authors').append(option);
+            }
+        });
 
         $('#authors').change(function () {
             var author = $('#authors').val();
