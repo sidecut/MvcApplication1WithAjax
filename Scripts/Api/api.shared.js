@@ -16,7 +16,7 @@
             data: {},
             contentType: 'application/x-www-form-urlencoded',
             success: function () { },
-            errror: function () { }
+            error: function () { }
         }, options);
 
         $.ajax({
