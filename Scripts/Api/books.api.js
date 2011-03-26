@@ -2,9 +2,13 @@
 
 booksApi.prototype.getAuthors = function (options) {
     $.ajax({
-        url: '/Api/Books/GetAuthors',
+        url: '/Api/Books/GetAuthorsz',
         type: 'GET',
-        success: options.success
+        success: options.success,
+        error: function (result) {
+            $('#errorDisplay').show();
+            $('#errorDisplay').html(result.responseText);
+        }
     });
 }
 
