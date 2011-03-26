@@ -1,14 +1,16 @@
 ﻿var booksApi = function () { }
 
 booksApi.prototype.getAuthors = function (options) {
-    $.ajax({
+    // create new object with default success & error functions
+    var config = $.extend({
+        success: function () { },
+        error: function () { }
+    }, options);
+
+    // call our ajaxApi with the path
+    $.apiCall({
         url: '/Api/Books/GetAuthors',
-        type: 'GET',
-        success: options.success,
-        error: function (result) {
-            $('#errorDisplay').show();
-            $('#errorDisplay').html(result.responseText);
-        }
+        success: function (result) { config.success(result); }
     });
 }
 
