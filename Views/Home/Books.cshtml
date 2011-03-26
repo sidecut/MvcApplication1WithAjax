@@ -33,16 +33,8 @@
 
     $(document).ready(function () {
 
-        $.ajax({
-            url: '@Url.Action("GetAuthors", "Api/Books")',
-            type: 'GET',
-            success: function (result) {
-                for (var i = 0; i < result.length; i++) {
-                    var option = new Option(result[i], result[i]);
-                    $('#authors').append(option);
-                }
-            }
-        });
+        var api = new booksApi();
+        api.getAuthors();
 
         $('#authors').change(function () {
             var author = $('#authors').val();
