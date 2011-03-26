@@ -34,7 +34,7 @@
     $(document).ready(function () {
 
         $.ajax({
-            url: '@Url.Action("GetAuthors")',
+            url: '@Url.Action("GetAuthors", "Api/Books")',
             type: 'GET',
             success: function (result) {
                 for (var i = 0; i < result.length; i++) {
@@ -48,7 +48,7 @@
             var author = $('#authors').val();
 
             $.ajax({
-                url: '@Url.Action("GetBooksForAuthor")',
+                url: '@Url.Action("GetBooksForAuthor", "Api/Books")',
                 type: 'POST',
                 data: { author: author },
                 success: function (result) {
