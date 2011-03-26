@@ -75,6 +75,7 @@
     <Content Include="Scripts\Api\api.books.js" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Api\api.shared.js" />
+    <Content Include="Scripts\Api\home.book.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
