@@ -14,14 +14,18 @@ booksApi.prototype.getAuthors = function (options) {
     });
 }
 
-booksApi.prototype.getBooksByAuthor = function (author) {
-    $.ajax({
-        url: '/Api/Books/GetBooksForAuthor',
+booksApi.prototype.getBooksByAuthor = function (options, author) {
+    // create new object with default success & error functions
+    var config = $.extend({
+        success: function () { },
+        error: function () { }
+    }, options);
+
+    $.apiCall({
+        url: encodeURI('/Api/Books/GetBooksForAuthor/' + author),
         type: 'POST',
         data: { author: author },
-        success: function (result) {
-            $('#bookTableBody').empty();
-            $('#bookTemplate').tmpl(result).appendTo('#bookTableBody');
-        }
+        success: function (result) { config.success(result); },
+        error: function (result) { config.error(result); }
     });
 }
