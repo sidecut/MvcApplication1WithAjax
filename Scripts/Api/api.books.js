@@ -22,7 +22,7 @@ booksApi.prototype.getBooksByAuthor = function (options, author) {
     }, options);
 
     $.apiCall({
-        url: encodeURI('/Api/Books/GetBooksForAuthor/' + author),
+        url: encodeURI('/Api/Books/GetBooksForAuthor/'),
         type: 'POST',
         data: { author: author },
         success: function (result) { config.success(result); },
